@@ -1,7 +1,7 @@
 @charset "UTF-8";@import url(https://fonts.googleapis.com/css?family=Jost:500,700&display=swap);@font-face {
     font-family: Crog;
     font-display: swap;
-    src: url(../fonts/Crog-Black.woff2) format("woff2");
+    src: url(../fonts/new/Deep-Hero.otf) format("woff2");
     font-weight: 900;
     font-style: normal
 }
@@ -9,7 +9,7 @@
 @font-face {
     font-family: Crog;
     font-display: swap;
-    src: url(../fonts/Crog-ExtraBold.woff2) format("woff2");
+    src: url(../fonts/new/Deep-Hero.ttf) format("woff2");
     font-weight: 800;
     font-style: normal
 }
@@ -17,7 +17,7 @@
 @font-face {
     font-family: Crog;
     font-display: swap;
-    src: url(../fonts/Crog-Medium.woff2) format("woff2");
+    src: url(../fonts/new/Honey-Crepes.ttf) format("woff2");
     font-weight: 500;
     font-style: normal
 }
@@ -25,7 +25,7 @@
 @font-face {
     font-family: Crog;
     font-display: swap;
-    src: url(../fonts/Crog-SemiBold.woff2) format("woff2");
+    src: url(../fonts/new/Honey-Crepes.ttf) format("woff2");
     font-weight: 600;
     font-style: normal
 }
@@ -191,7 +191,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .menu__link._navigator-active::before {
-    background-color: #d63641
+    background-color: #01dd15
 }
 
 .icon-menu {
@@ -359,9 +359,9 @@ h1,h2,h3,h4,h5,h6 {
     font-size: 1.5rem;
     font-weight: 600;
     border-radius: 62.5rem;
-    border: .0625rem solid #b67f18;
-    background: var(--bg-accent-2);
-    box-shadow: .25rem .25rem 0 0 #b67f18;
+    border: .0625rem solid #1eb618;
+    background: #008000;
+    box-shadow: .25rem .25rem 0 0 #18b018;
     width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content;
@@ -369,7 +369,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .red {
-    color: var(--text-accent-sec)
+    color: green;
 }
 
 .bold {
@@ -453,7 +453,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .footer__wrapper {
-    background: url(../img/footer/bg.png)
+    background-color: rgb(40, 28, 4);
 }
 
 .footer__container {
@@ -580,11 +580,11 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .page__buy {
-    background: url(../img/footer/bg.png)
+    background-color: #465746;
 }
 
 .page__sections-wrapper {
-    background: url(../img/hero/bg.png);
+    background: url(../img/polkadot.jpg);
     box-shadow: 0 -1.25rem 0 0 #c3c3c3 inset;
     padding-bottom: 1.25rem
 }
@@ -673,7 +673,7 @@ h1,h2,h3,h4,h5,h6 {
 
 .hero {
     position: relative;
-    background: url(../img/hero/bg.png);
+    background: url(../img/uno.webp);
     padding-top: calc(var(--headH) + 2.8125rem);
     overflow: hidden
 }
@@ -861,7 +861,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .hero__cat-img {
-    width: 90%;
+    width: 130%;
     aspect-ratio: 617/636
 }
 
@@ -1085,7 +1085,7 @@ h1,h2,h3,h4,h5,h6 {
 .card-buy__title {
     font-family: Crog,sans-serif;
     font-weight: 900;
-    line-height: 68%
+    line-height: 98%
 }
 
 .card-buy__text {
@@ -1100,8 +1100,8 @@ h1,h2,h3,h4,h5,h6 {
 
 .swiper-button-next,.swiper-button-prev {
     border-radius: 62.5rem 0 0 62.5rem;
-    border: .28125rem solid var(--text-accent-sec);
-    background-color: var(--text-accent-sec);
+    border: .28125rem solid #00dd19;
+    background-color: #1ae22b;
     box-shadow: 0 -1.25rem 2.14375rem 0 rgba(0,0,0,.25) inset,.28125rem .4375rem 0 0 #000;
     aspect-ratio: 150/100;
     min-width: 4.375rem;
@@ -1183,8 +1183,8 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .swiper-button-next {
-    border: .28125rem solid #0087c0;
-    background-color: #0087c0;
+    border: .28125rem solid #e7fc02;
+    background-color: #d8f324;
     border-radius: 0 62.5rem 62.5rem 0
 }
 
@@ -1317,6 +1317,13 @@ h1,h2,h3,h4,h5,h6 {
 
 .right-about__subtitle {
     color: #151515;
+    font-family: Crog,sans-serif;
+    font-weight: 600;
+    line-height: 1.5
+}
+
+.judul-bawah {
+    color: #ffffff;
     font-family: Crog,sans-serif;
     font-weight: 600;
     line-height: 1.5
@@ -3317,7 +3324,7 @@ h1,h2,h3,h4,h5,h6 {
 
     @supports (font-size: clamp(5rem ,0.5652173913rem + 22.1739130435vw ,20.9375rem)) {
         .hero__title {
-            font-size:clamp(5rem ,.5652173913rem + 22.1739130435vw ,20.9375rem)
+            font-size:200px
         }
     }
 
@@ -4524,7 +4531,7 @@ h1,h2,h3,h4,h5,h6 {
 
 @media (any-hover: hover) {
     .menu__link:hover {
-        color:var(--text-accent-sec)
+        color: #249634;
     }
 
     .button:hover {
