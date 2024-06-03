@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<title>GameStart</title>
+	<meta charset="UTF-8" />
+	<meta name="format-detection" content="telephone=no" />
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+	<style>
+		body {
+			opacity: 0;
+			visibility: hidden;
+			transition:
+				opacity 0.3s ease 0s,
+				visibility 0.3s ease 0s;
+		}
+
+		.loaded body {
+			opacity: 1;
+			visibility: visible;
+		}
+		
+		.music-box {
+            position: fixed;
+            width: 300px;
+            height: 160px;
+            z-index: 120;
+            bottom: 30px;
+            right: 30px;
+        }
+		
+		@media (max-width: 991px) {
+            .music-box {
+                width: 50px;
+                height: 150px;
+                right: auto;
+                left: 10px;
+                /*top:10px;*/
+            }
+
+            .titel {
+                min-width: 350px;
+            }
+
+            .respon {
+                padding-right: 350px;
+                padding-left: 350px;
+            }
+        }
+
+        .music-box .music-holder {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            right: 0;
+            top: -30px;
+            visibility: hidden;
+            opacity: 0;
+            -webkit-transition: all 0.5s ease-out;
+            -o-transition: all 0.5s ease-out;
+            transition: all 0.5s ease-out;
+        }
+
+        .music-box .music-holder iframe {
+            width: 100%;
+            height: 100%;
+        }
+
+        .music-box button {
+            background: rgba(0, 0, 0, 0.1);
+            width: 40px;
+            height: 40px;
+            line-height: 37px;
+            font-size: 18px;
+            font-size: 1rem;
+            color: #d3d6cb;
+            border: 1px solid #e6e6e6;
+            outline: 0;
+            padding: 0;
+            margin: 0;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            -o-border-radius: 50%;
+            -ms-border-radius: 50%;
+            border-radius: 50%;
+        }
+
+        .music-box button i {
+            font-size: 14px;
+        }
+
+        @media (max-width: 460px) {
+            .music-box button {
+                right: 0;
+                left: auto;
+                padding-top: 0;
+                bottom: -8px;
+            }
+
+            .titel {
+                min-width: 350px;
+            }
+
+            .gla_news_block .gla_over {
+                left: -230px;
+            }
+
+            .respon {
+                padding-right: 10px;
+                padding-left: 10px;
+            }
+        }
+
+        .music-box .toggle-music-box {
+            top: -50px;
+            visibility: visible;
+            opacity: 1;
+
+        }
+
+
+        .music {
+            padding: 0;
+            background: none !important;
+            border: none !important;
+            position: relative;
+            top: 120px;
+            left: 258px;
+        }
+
+        .music:focus {
+            outline: none;
+        }
+	</style>
+	<link rel="stylesheet" href="css/style.min.css?_v=20240507225032" />
+	<link rel="shortcut icon" href="./img/logo.png" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<div class="header__container">
+				<div class="header__left">
+					<a href="" class="header__logo"><img src="img/logo.png" alt="logotype" /></a>
+					<div class="header__menu menu">
+						<nav class="menu__body">
+							<ul class="menu__list">
+								<li class="menu__item">
+									<a data-goto-header data-goto=".hero" href="#" class="menu__link">
+										Home
+									</a>
+								</li>
+								<li class="menu__item">
+									<a data-goto-header data-goto=".buy" href="#" class="menu__link">
+										How to Buy
+									</a>
+								</li>
+								<li class="menu__item">
+									<a data-goto-header data-goto=".about" href="#" class="menu__link">
+										About
+									</a>
+								</li>
+								<li class="menu__item">
+									<a data-goto-header data-goto=".tokenomics" href="#" class="menu__link">
+										Tokenomics
+									</a>
+								</li>
+								<li class="menu__item">
+									<a data-goto-header data-goto=".faqos" href="#" class="menu__link">
+										FAQ
+									</a>
+								</li>
+							</ul>
+							<div class="header__social social-header">
+								<a href="https://twitter.com/GMEonETH_" target="_blank" aria-label="social X" class="social-header__link">
+									<img src="img/header/social/x.svg" alt="Image" />
+								</a>
+								<a href="https://t.me/GME_ERC20" target="_blank" aria-label="social telegram" class="social-header__link">
+									<img src="img/header/social/bxl_telegram.svg" alt="Image" />
+								</a>
+								<a href="https://www.dextools.io/app/en/ether/pair-explorer/0x2aeee741fa1e21120a21e57db9ee545428e683c9?t=1715573325537" target="_blank" aria-label="social dextools" class="social-header__link">
+									<img src="img/header/social/03.svg" alt="Image" />
+								</a>
+							</div>
+						</nav>
+					</div>
+				</div>
+				<a data-da=".menu__body, 991.98" href="https://app.uniswap.org/swap?inputCurrency=eth&outputCurrency=0xc56C7A0eAA804f854B536A5F3D5f49D2EC4B12b8&chain=mainnet" target="_blank" class="header__button button">
+					Buy Now
+				</a>
+				<button type="button" class="menu__icon icon-menu" aria-label=" open / close menu">
+					<span></span>
+				</button>
+			</div>
+		</header>
+
+		<main class="page">
+			<section data-watch="navigator" class="page__hero hero">
+				<!-- <div class="hero__pills">
+					<img src="img/hero/pills.png" alt="Image" />
+					<img src="img/hero/pills-mob.png" alt="Image" />
+				</div> -->
+				<div class="hero__container">
+					<h1 class="hero__title">
+						<span class="red">GAME</span>
+						<span>START</span>
+					</h1>
+					<div class="hero__img">
+						<img class="hero__cat-img" src="img/hero/hero.png" alt="Image" />
+						<img class="hero__cup-img" src="img/hero/cup.png" alt="Image" />
+					</div>
+				</div>
+			</section>
+
+			<section data-watch="navigator" class="page__buy buy">
+				<div data-watch data-watch-threshold="0.7" data-watch-once class="buy__container">
+					<div class="buy__wrapper-buttle">
+						<div class="buy__buttle buttle-buy">
+							<div class="buttle-buy__decor">
+								<img src="img/buy/buttle.png" alt="Image" />
+							</div>
+							<h2 class="buttle-buy__title">
+								<span class="buttle-buy__top-title">How to</span>
+								<span class="buttle-buy__bottom-title red">buy</span>
+							</h2>
+						</div>
+					</div>
+					<div class="buy__swiper-box">
+						<button type="button" class="swiper-button-prev">
+							<img src="img/buy/arrow.svg" alt="Image" />
+						</button>
+						<div class="buy__slider swiper">
+							<div class="buy__wrapper swiper-wrapper">
+								<div class="buy__slide swiper-slide">
+									<div class="swiper-slide__card card-buy">
+										<h3 class="card-buy__title">Create a Wallet</h3>
+										<div class="card-buy__text">
+											<p>
+												Download Metamask from the App Store or Google Play
+												for free. Desktop users, download the Google Chrome
+												extension by going to
+												<a class="card-buy__link" href="https://chromewebstore.google.com/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn" target="_blank">Metamask</a>.
+											</p>
+										</div>
+										<a href="https://chromewebstore.google.com/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn" target="_blank" class="card-buy__button button-orange">
+											Download Metamask
+										</a>
+									</div>
+								</div>
+								<div class="buy__slide swiper-slide">
+									<div class="swiper-slide__card card-buy">
+										<h3 class="card-buy__title">Add Base Chain to Wallet</h3>
+										<div class="card-buy__text">
+											<p>
+												Follow the guide below to add the Base chain to your
+												new
+												<a href="https://www.coingecko.com/learn/add-coinbase-base-to-metamask" class="card-buy__link" target="_blank">Metamask Wallet.</a>
+											</p>
+										</div>
+										<a href="https://www.coingecko.com/learn/add-coinbase-base-to-metamask" target="_blank" class="card-buy__button button-orange">
+											Chain to Wallet
+										</a>
+									</div>
+								</div>
+								<div class="buy__slide swiper-slide">
+									<div class="swiper-slide__card card-buy">
+										<h3 class="card-buy__title">
+											Send ETH to Wallet and Bridge
+										</h3>
+										<div class="card-buy__text">
+											<p>
+												Sending ETH from an exchange to your
+												new Metamask wallet.
+												
+											</p>
+										</div>
+										<a href="https://app.uniswap.org/swap?inputCurrency=eth&outputCurrency=0xc56C7A0eAA804f854B536A5F3D5f49D2EC4B12b8&chain=mainnet" target="_blank" class="card-buy__button button-orange">
+											Send ETH to Wallet
+										</a>
+									</div>
+								</div>
+								<div class="buy__slide swiper-slide">
+									<div class="swiper-slide__card card-buy">
+										<h3 class="card-buy__title">Purchase on Uniswap</h3>
+										<div class="card-buy__text">
+											<p>
+												Use the link below to connect your wallet to Uniswap
+												and
+												<a href="https://app.uniswap.org/swap?inputCurrency=eth&outputCurrency=0xc56C7A0eAA804f854B536A5F3D5f49D2EC4B12b8&chain=mainnet" target="_blank" class="card-buy__link">
+													exchange</a>
+												ETH for $GME
+											</p>
+										</div>
+										<a href="https://app.uniswap.org/swap?inputCurrency=eth&outputCurrency=0xc56C7A0eAA804f854B536A5F3D5f49D2EC4B12b8&chain=mainnet" target="_blank" class="card-buy__button button-orange">
+											Purchase
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<button type="button" class="swiper-button-next">
+							<img src="img/buy/arr-right.svg" alt="Image" />
+						</button>
+					</div>
+				</div>
+			</section>
+			<div class="page__sections-wrapper">
+				<div data-watch="navigator" class="page__about about">
+					<div class="about__container">
+						<article class="about__left left-about">
+							<h2 class="left-about__title">About</h2>
+							<div class="left-about__img">
+								<blockquote class="twitter-tweet"><p lang="zxx" dir="ltr"><a href="https://t.co/YgjVqtgcNS">pic.twitter.com/YgjVqtgcNS</a></p>&mdash; Roaring Kitty (@TheRoaringKitty) <a href="https://twitter.com/TheRoaringKitty/status/1789807772542067105?ref_src=twsrc%5Etfw">May 13, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+								<span> </span>
+							</div>
+						</article>
+						<article class="about__right right-about">
+							<h3 class="right-about__title">GameStart</h3>
+							<h4 class="right-about__subtitle">
+								tell me more about GameStart
+							</h4>
+							<ul class="right-about__list">
+								<li class="right-about__item">
+									<div class="right-about__count">
+										<span data-counter=" 1s , 4em">19</span><span>86</span>
+									</div>
+									<div class="right-about__text">Years in born</div>
+								</li>
+								<li class="right-about__item">
+									<div data-counter=" 1s" class="right-about__count">50</div>
+									<div class="right-about__text">Million</div>
+								</li>
+								<li class="right-about__item">
+									<div class="right-about__count">
+										<span data-counter=" 1s , 8em">53</span><span>000</span>
+									</div>
+									<div class="right-about__text">IN START</div>
+								</li>
+								<li class="right-about__item">
+									<div data-counter=" 1s" class="right-about__count">15</div>
+									<div class="right-about__text">
+										Million in one day
+									</div>
+								</li>
+							</ul>
+							<div class="right-about__blok-text">
+								<p>
+									<span class="bold">Welcome to the world of GameStart</span> -
+									In September 2019, Gill, under the username "u/DeepFuckingValue", posted on the subreddit r/wallstreetbets a screenshot of a trade consisting of a roughly $53,000 long position in GameStart
+								</p>
+								<p>
+									Nonetheless, his argument "helped attract a flood of retail cash into GameStart." During the first days of the valuation spike in late January 2021, hundreds of thousands of people downloaded investment apps like Robinhood to "join the action".
+								</p>
+								<p>
+									<span class="bold">Subsequent investment in the stock (and other "meme stocks" such as AMC, BlackBerry, and Nokia) would result in controversy.
+								</p>
+							</div>
+						</article>
+					</div>
+				</div>
+				<div data-watch="navigator" class="page__tokenomics tokenomics">
+					<div data-watch data-watch-threshold="0.6" data-watch-once class="tokenomics__container">
+						<div class="tokenomics__img">
+							<svg class="tokenomics__pulse" viewBox="0 0 1384 465" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<!-- Определение пути и градиента -->
+								<path class="cls-1" d="M1354.71 229.479C1342.83 229.479 1332.65 236.789 1328.35 247.186H1218.78L1187.78 164.331C1186.03 159.65 1181.37 156.738 1176.43 157.22C1171.49 157.707 1167.48 161.471 1166.67 166.407L1135.19 355.591L1071.13 9.04234C1070.15 3.72325 1065.5 -0.106487 1060.12 0.00225842C1054.75 0.106276 1050.24 4.11096 1049.46 9.46786L1014.96 247.186H969.539L943.793 184.653C942.071 180.468 937.993 177.75 933.498 177.825C929.003 177.887 925.001 180.705 923.391 184.931L899.733 247.181H821.612C816.835 247.181 812.603 250.292 811.148 254.879L775.553 367.038L717.852 182.61C716.393 177.948 712.062 174.79 707.229 174.87C702.382 174.936 698.149 178.199 696.817 182.898L678.587 247.181H588.839L560.423 191.915C558.532 188.241 554.773 185.939 550.672 185.939C550.635 185.939 550.602 185.939 550.564 185.939C546.421 185.976 542.658 188.364 540.823 192.104L513.824 247.181H449.62C444.623 247.181 440.254 250.581 438.992 255.451L400.703 403.071L327.856 22.9902C326.862 17.8082 322.376 14.0494 317.135 14.021C317.111 14.021 317.092 14.021 317.069 14.021C311.856 14.021 307.356 17.7136 306.31 22.8672L244.222 327.856L193.48 175.055C191.978 170.539 187.784 167.499 183.063 167.499C183.044 167.499 183.026 167.499 183.012 167.499C178.268 167.523 174.078 170.61 172.614 175.154L149.448 247.186H54.9227C50.6199 236.789 40.4377 229.479 28.557 229.479C12.7864 229.479 0 242.363 0 258.254C0 274.146 12.7864 287.03 28.557 287.03C40.4377 287.03 50.6199 279.72 54.9227 269.323H157.439C162.201 269.323 166.42 266.231 167.888 261.668L183.237 213.948L236.362 373.922C237.939 378.669 242.481 381.761 247.441 381.459C252.4 381.156 256.539 377.539 257.538 372.636L316.75 81.7649L388.307 455.15C389.278 460.224 393.609 463.945 398.737 464.115C398.859 464.115 398.977 464.12 399.099 464.12C404.077 464.12 408.455 460.734 409.722 455.85L458.104 269.323H520.651C524.832 269.323 528.647 266.93 530.5 263.157L550.907 221.527L572.407 263.347C574.293 267.02 578.056 269.323 582.162 269.323H686.879C691.782 269.323 696.094 266.046 697.441 261.295L707.9 224.406L765.009 406.943C766.45 411.543 770.677 414.673 775.464 414.683H775.487C780.264 414.683 784.496 411.572 785.951 406.986L829.64 269.323H907.297C911.848 269.323 915.926 266.495 917.554 262.212L934.066 218.766L952.07 262.496C953.773 266.628 957.776 269.323 962.215 269.323H1024.46C1029.91 269.323 1034.54 265.295 1035.32 259.857L1061.64 78.564L1124.96 421.137C1125.93 426.38 1130.47 430.177 1135.76 430.177C1135.79 430.177 1135.82 430.177 1135.86 430.177C1141.19 430.129 1145.71 426.233 1146.59 420.938L1181.6 210.553L1200.9 262.16C1202.52 266.472 1206.61 269.323 1211.18 269.323H1328.34C1332.64 279.72 1342.83 287.03 1354.71 287.03C1370.48 287.03 1383.26 274.146 1383.26 258.254C1383.26 242.363 1370.48 229.479 1354.71 229.479H1354.71Z" fill="url(#linear-gradient)" />
+								<defs>
+									<linearGradient id="linear-gradient" x1="0%" y1="50%" x2="100%" y2="50%" gradientUnits="userSpaceOnUse">
+										<stop offset="0%" stop-color="rgba(253, 8, 24, 0.1)" />
+										<stop offset="10%" stop-color="#FD0819" />
+										<stop offset="20%" stop-color="rgba(253, 8, 24, 0.1)" />
+										<stop offset="100%" stop-color="rgba(253, 8, 24, 0.1)" />
+									</linearGradient>
+								</defs>
+								<animate attributeName="x1" href="#linear-gradient" values="0%;300%;" dur="3s" repeatCount="indefinite" />
+							</svg>
+							<img data-src="img/tokenomiks/logo.png" alt="Image" />
+						</div>
+						<div class="tokenomics__box">
+							<div class="tokenomics__card card-tokenomics">
+								<div class="card-tokenomics__wrapper">
+									<div class="card-tokenomics__body">
+										<h2 class="card-tokenomics__title">TOKENOMICS</h2>
+										<ul class="card-tokenomics__list">
+											<li class="card-tokenomics__item">
+												<span><img src="img/tokenomiks/li-1.svg" alt="Image" /></span>
+												0% Taxes
+											</li>
+											<li class="card-tokenomics__item">
+												<span><img src="img/tokenomiks/li-2.svg" alt="Image" /></span>
+												LP Locked
+											</li>
+											<li class="card-tokenomics__item">
+												<span><img src="img/tokenomiks/li-3.svg" alt="Image" /></span>
+												Ownership renoUNced
+											</li>
+											<li class="card-tokenomics__item">
+												<span><img src="img/tokenomiks/li-4.svg" alt="Image" /></span>
+												420B Supply
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="music-box">
+                <button class="music-box-toggle-btn">
+                    <audio id="song" loop="" autoplay="true">
+                        <source src="lagu.mp3">
+                    </audio>
+                </button>
+                <button type="button" class="music" id="unmute-sound" style="display: none;">
+                    <i class="fa fa-microphone-slash"></i>
+                </button>
+                <button type="button" class="music" id="mute-sound">
+                    <i class="fa fa-music"></i>
+                </button>
+            </div>
+		</main>
+		<footer data-watch="navigator" data-watch-threshold="0.8" data-watch-once class="footer">
+			<div class="footer__wrapper">
+				<div class="footer__container">
+					<div class="footer__left">
+						<div class="footer__top top-footer">
+							<div class="top-footer__column">
+								<a data-goto-header data-goto=".buy" href="#" target="_blank" class="top-footer__link">
+									HOW TO BUY
+								</a>
+								<a href="#" data-goto-header data-goto=".about" target="_blank" class="top-footer__link"> ABOUT </a>
+								<a data-goto-header data-goto=".tokenomics" href="#" target="_blank" class="top-footer__link">
+									TOKENOMICS
+								</a>
+							</div>
+							<div class="top-footer__column">
+								<a href="https://t.me/GME_ERC20" target="_blank" class="top-footer__link"> Telegram </a>
+								<a href="https://twitter.com/GMEonETH_" target="_blank" class="top-footer__link">
+									Twitter [<span class="red">x</span>]
+								</a>
+								<a href="https://www.dextools.io/app/en/ether/pair-explorer/0x2aeee741fa1e21120a21e57db9ee545428e683c9?t=1715573325537" target="_blank" class="top-footer__link"> dextools </a>
+							</div>
+						</div>
+						<div class="footer__bottom">
+							<div data-tippy-content="Copied" data-clipboard class="footer__address">
+								<p data-clipboardEl>adress: 0xc56...4B12B8</p>
+								<button type="button" aria-label="copy text" class="footer__button"></button>
+							</div>
+							<div class="footer__copy"><a href= "mailto: gme-eth@hotmail.com"> gme-eth@hotmail.com </a></div>
+						</div>
+					</div>
+					<div class="footer__img">
+						<img data-src="img/footer/logo.png" alt="Image" />
+					</div>
+				</div>
+			</div>
+		</footer>
+
+	</div>
+	<script>
+		document.getElementById('song').play();
+		document.getElementById('unmute-sound').addEventListener('click', function(event) {
+			document.getElementById('unmute-sound').style.display = 'none';
+			document.getElementById('mute-sound').style.display = 'inline-block';
+			document.getElementById('song').play();
+		});
+		document.getElementById('mute-sound').addEventListener('click', function(event) {
+			document.getElementById('mute-sound').style.display = 'none';
+			document.getElementById('unmute-sound').style.display = 'inline-block';
+			document.getElementById('song').pause();
+		});
+		
+	</script>
+	<script src="js/app.min.js?_v=20240507225032"></script>
+</body>
+
+</html>
